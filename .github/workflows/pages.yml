@@ -42,7 +42,7 @@ jobs:
         env:
           B127_GITHUB_PAGES: 'true'
           B127_SITE_URL: ${{ steps.pages.outputs.base_url }}
-          B127_CMS_AUTH_URL: ${{ vars.B127_CMS_AUTH_URL }}
+          B127_CMS_AUTH_URL: ${{ vars.B127_CMS_AUTH_URL || 'https://b127-cms-auth.woobin950918.workers.dev' }}
         run: node build.mjs
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
