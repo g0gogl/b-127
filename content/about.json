@@ -23,6 +23,16 @@
           "url": "https://www.youtube.com/watch?v=eZ3fzGVujE0"
         }
       ]
+    },
+    {
+      "links": [
+        {
+          "type": "instagram",
+          "url": "https://gwww.naver.com"
+        }
+      ],
+      "year": "2026",
+      "description": "test"
     }
   ],
   "email": "wsb924@gmail.com"
