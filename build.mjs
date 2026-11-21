@@ -10,6 +10,8 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('.', import.meta.url));
 const read = (path) => readFileSync(join(root, path), 'utf8');
 const layout = read('templates/layout.html');
+const artist = JSON.parse(read('content/about.json'));
+const emailLink = 'mailto:' + encodeURIComponent(artist.email).replace('%40', '@');
 const renditions = new Map();
 const imageIds = new Map();
 
@@ -47,6 +49,8 @@ function renderPage(title, description, content, current, script) {
     HOME_CURRENT: currentPage('home'),
     WORKS_CURRENT: currentPage('works'),
     ABOUT_CURRENT: currentPage('about'),
+    ARTIST_NAME: escapeHtml(artist.name),
+    EMAIL_LINK: escapeHtml(emailLink),
     CONTENT: content.trimEnd(),
   });
 }
@@ -188,6 +192,46 @@ function renderWork(template, work) {
   });
 }
 
+function exhibitionVideoLink(address) {
+  if (!address) return '';
+  const video = new URL(address);
+  const youtubeHosts = ['www.youtube.com', 'youtube.com', 'm.youtube.com', 'youtu.be'];
+  if (video.protocol !== 'https:' || !youtubeHosts.includes(video.hostname) ||
+      video.username || video.password || video.port || video.pathname === '/') {
+    throw new Error('Enter a valid YouTube address for the exhibition video in content/about.json.');
+  }
+
+  return `                            <a class="youtube-link" href="${escapeHtml(video.href)}" aria-label="개인전 영상 보기 (YouTube)">
+                                <img src="img/youtube.png" width="150" height="106" alt="">
+                            </a>`;
+}
+
+function renderAboutSection(title, items = [], link = '') {
+  if (!items.length && !link) return '';
+  const rows = items.map(({ year, description }) =>
+    `                            <li><time>${escapeHtml(year)}</time><span>${escapeHtml(description)}</span></li>`);
+  const heading = link ? `                        <div class="about-section-heading">
+                            <h3>${title}</h3>
+${link}
+                        </div>` : `                        <h3>${title}</h3>`;
+  return `                    <section>
+${heading}
+${rows.length ? '                        <ul>\n' + rows.join('\n') + '\n                        </ul>\n' : ''}                    </section>`;
+}
+
+function renderAbout() {
+  return render(read('templates/about.html'), {
+    PORTRAIT: resizedImage(imagePath(artist.portrait, '작가 사진'), 1200, 88),
+    PORTRAIT_ALT: escapeHtml(artist.portrait_alt),
+    ARTIST_NAME: escapeHtml(artist.name),
+    ARTIST_NAME_EN: escapeHtml(artist.name_en),
+    EDUCATION: renderAboutSection('학력', artist.education ?? []),
+    EXHIBITIONS: renderAboutSection('개인전', artist.exhibitions ?? [], exhibitionVideoLink(artist.exhibition_video)),
+    EMAIL: escapeHtml(artist.email),
+    EMAIL_LINK: escapeHtml(emailLink),
+  });
+}
+
 function externalGithubBackend(repo, branch, authUrl, options = []) {
   const url = new URL(authUrl);
   if (!/^[\w.-]+\/[\w.-]+$/.test(repo) || url.protocol !== 'https:' || url.username || url.password) {
@@ -242,18 +286,19 @@ const years = new Set([...registeredYears, ...works.map((work) => String(work.ye
 const workTemplate = read('templates/work.html');
 const home = JSON.parse(read('content/home.json'));
 const pages = new Map([
-  ['index.html', renderPage('B-127 · 원슬비', '원슬비 도예 작품 포트폴리오',
+  ['index.html', renderPage(`B-127 · ${artist.name}`, `${artist.name} 도예 작품 포트폴리오`,
     render(read('templates/home.html'), {
+      ARTIST_NAME: escapeHtml(artist.name),
+      ARTIST_NAME_EN: escapeHtml(artist.name_en),
       HERO_IMAGE: resizedImage(imagePath(home.image, '메인 사진'), 1440, 88),
       HERO_ALT: escapeHtml(home.alt),
       WORKS: works.slice(0, 3).map(renderCard).join('\n'),
     }), 'home')],
-  ['about.html', renderPage('작가 소개 · B-127', '원슬비 작가 소개와 전시 이력',
-    read('templates/about.html'), 'about')],
-  ['portfolio.html', renderPage('작품 · B-127', '원슬비의 도예 작품을 연도별로 둘러보세요.',
+  ['about.html', renderPage('작가 소개 · B-127', `${artist.name} 작가 소개와 전시 이력`, renderAbout(), 'about')],
+  ['portfolio.html', renderPage('작품 · B-127', `${artist.name}의 도예 작품을 연도별로 둘러보세요.`,
     renderPortfolio(years, works), 'works', 'portfolio.js')],
   ...works.map((work) => [work.file, renderPage(`${publicTitle(work)} · B-127`,
-    work.description || `${work.year}년 원슬비 도예 작품`, renderWork(workTemplate, work),
+    work.description || `${work.year}년 ${artist.name} 도예 작품`, renderWork(workTemplate, work),
     null, work.photos.length > 1 ? 'work-gallery.js' : '')]),
 ]);
 const backend = adminBackend();

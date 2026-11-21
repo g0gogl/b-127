@@ -1,0 +1,24 @@
+{
+  "name": "원슬비",
+  "name_en": "Won Seul Bee",
+  "portrait": "/img/uploads/profill.jpg",
+  "portrait_alt": "작업실에서 작품을 만드는 원슬비 작가",
+  "education": [
+    {
+      "year": "2020",
+      "description": "홍익대학교 일반대학원 도예과 석사 졸업"
+    },
+    {
+      "year": "2017",
+      "description": "강원대학교 춘천캠퍼스 미술학과(공예전공) 졸업"
+    }
+  ],
+  "exhibitions": [
+    {
+      "year": "2023",
+      "description": "〈B의 여행〉, 춘천 개나리미술관"
+    }
+  ],
+  "exhibition_video": "https://www.youtube.com/watch?v=eZ3fzGVujE0",
+  "email": "wsb924@gmail.com"
+}
