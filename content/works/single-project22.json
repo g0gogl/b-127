@@ -1,7 +1,7 @@
 {
   "title": "사막식물 선인장",
   "year": "2022",
-  "cover": "/img/uploads/p43.jpg",
+  "cover": "img/uploads/p43.jpg",
   "legacy_url": "single-project22",
   "order": 23,
   "heading": "B",
@@ -9,34 +9,34 @@
   "materials": "stonware, glaze",
   "photos": [
     {
-      "image": "/img/uploads/p43.jpg"
+      "image": "img/uploads/p43.jpg"
     },
     {
-      "image": "/img/uploads/p43-1.jpg"
+      "image": "img/uploads/p43-1.jpg"
     },
     {
-      "image": "/img/uploads/p43-2.jpg"
+      "image": "img/uploads/p43-2.jpg"
     },
     {
-      "image": "/img/uploads/p43-3.jpg"
+      "image": "img/uploads/p43-3.jpg"
     },
     {
-      "image": "/img/uploads/p43-4.jpg"
+      "image": "img/uploads/p43-4.jpg"
     },
     {
-      "image": "/img/uploads/p43-5.jpg"
+      "image": "img/uploads/p43-5.jpg"
     },
     {
-      "image": "/img/uploads/p43-6.jpg"
+      "image": "img/uploads/p43-6.jpg"
     },
     {
-      "image": "/img/uploads/p43-7.jpg"
+      "image": "img/uploads/p43-7.jpg"
     },
     {
-      "image": "/img/uploads/p43-8.jpg"
+      "image": "img/uploads/p43-8.jpg"
     },
     {
-      "image": "/img/uploads/p43-9.jpg"
+      "image": "img/uploads/p43-9.jpg"
     }
   ]
 }

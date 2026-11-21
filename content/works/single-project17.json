@@ -1,13 +1,13 @@
 {
   "title": "Knock-",
   "year": "2020",
-  "cover": "/img/uploads/p31.png",
+  "cover": "img/uploads/p31.png",
   "legacy_url": "single-project17",
   "order": 18,
   "materials": "석기질점토, 화장토, 안료, 투명매트유",
   "photos": [
     {
-      "image": "/img/uploads/p31.png"
+      "image": "img/uploads/p31.png"
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "title": "기억의 조각",
   "year": "2018",
-  "cover": "/img/uploads/p24.png",
+  "cover": "img/uploads/p24.png",
   "legacy_url": "single-project12",
   "order": 13,
   "size": "20 x 32 x 30",
   "materials": "석기질점토, 화장토, 안료",
   "photos": [
     {
-      "image": "/img/uploads/p24.png"
+      "image": "img/uploads/p24.png"
     }
   ]
 }

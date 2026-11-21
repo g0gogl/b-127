@@ -1,25 +1,25 @@
 {
   "title": "발아",
   "year": "2017",
-  "cover": "/img/uploads/p17.png",
+  "cover": "img/uploads/p17.png",
   "legacy_url": "single-project10",
   "order": 11,
   "materials": "석기질점토, 화장토, 안료 Ceramic pencil",
   "photos": [
     {
-      "image": "/img/uploads/p17.png"
+      "image": "img/uploads/p17.png"
     },
     {
-      "image": "/img/uploads/p17-1.png"
+      "image": "img/uploads/p17-1.png"
     },
     {
-      "image": "/img/uploads/p17-2.png"
+      "image": "img/uploads/p17-2.png"
     },
     {
-      "image": "/img/uploads/p17-3.png"
+      "image": "img/uploads/p17-3.png"
     },
     {
-      "image": "/img/uploads/p17-4.png"
+      "image": "img/uploads/p17-4.png"
     }
   ]
 }

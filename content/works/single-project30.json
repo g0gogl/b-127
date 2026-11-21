@@ -1,7 +1,7 @@
 {
   "title": "제목 미등록 · 작품 30",
   "year": "2022",
-  "cover": "/img/uploads/p51-1.jpg",
+  "cover": "img/uploads/p51-1.jpg",
   "legacy_url": "single-project30",
   "order": 31,
   "show_title": false,
@@ -9,16 +9,16 @@
   "materials": "stonware, glaze",
   "photos": [
     {
-      "image": "/img/uploads/p51-1.jpg"
+      "image": "img/uploads/p51-1.jpg"
     },
     {
-      "image": "/img/uploads/p51.jpg"
+      "image": "img/uploads/p51.jpg"
     },
     {
-      "image": "/img/uploads/p51-2.jpg"
+      "image": "img/uploads/p51-2.jpg"
     },
     {
-      "image": "/img/uploads/p51-3.jpg"
+      "image": "img/uploads/p51-3.jpg"
     }
   ]
 }

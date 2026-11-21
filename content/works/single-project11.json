@@ -1,28 +1,28 @@
 {
   "title": "성장",
   "year": "2018",
-  "cover": "/img/uploads/p23.png",
+  "cover": "img/uploads/p23.png",
   "legacy_url": "single-project11",
   "order": 12,
   "materials": "석기질점토, 화장토, 안료 Ceramic pencil",
   "photos": [
     {
-      "image": "/img/uploads/p23.png"
+      "image": "img/uploads/p23.png"
     },
     {
-      "image": "/img/uploads/p19.png"
+      "image": "img/uploads/p19.png"
     },
     {
-      "image": "/img/uploads/p20.png"
+      "image": "img/uploads/p20.png"
     },
     {
-      "image": "/img/uploads/p21.png"
+      "image": "img/uploads/p21.png"
     },
     {
-      "image": "/img/uploads/p22.png"
+      "image": "img/uploads/p22.png"
     },
     {
-      "image": "/img/uploads/p25.png"
+      "image": "img/uploads/p25.png"
     }
   ]
 }

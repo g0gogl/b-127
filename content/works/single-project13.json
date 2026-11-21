@@ -1,13 +1,13 @@
 {
   "title": "일상에서 피어나다",
   "year": "2018",
-  "cover": "/img/uploads/p26.png",
+  "cover": "img/uploads/p26.png",
   "legacy_url": "single-project13",
   "order": 14,
   "materials": "백자, 화장토, 안료",
   "photos": [
     {
-      "image": "/img/uploads/p26.png"
+      "image": "img/uploads/p26.png"
     }
   ]
 }

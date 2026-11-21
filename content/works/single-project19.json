@@ -1,23 +1,23 @@
 {
   "title": "B",
   "year": "2022",
-  "cover": "/img/uploads/p40.jpg",
+  "cover": "img/uploads/p40.jpg",
   "legacy_url": "single-project19",
   "order": 20,
   "size": "20 x 14 x 63 cm",
   "materials": "stonware, glaze",
   "photos": [
     {
-      "image": "/img/uploads/p40.jpg"
+      "image": "img/uploads/p40.jpg"
     },
     {
-      "image": "/img/uploads/p40-1.jpg"
+      "image": "img/uploads/p40-1.jpg"
     },
     {
-      "image": "/img/uploads/p40-2.jpg"
+      "image": "img/uploads/p40-2.jpg"
     },
     {
-      "image": "/img/uploads/p40-3.jpg"
+      "image": "img/uploads/p40-3.jpg"
     }
   ]
 }

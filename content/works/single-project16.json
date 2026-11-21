@@ -1,14 +1,14 @@
 {
   "title": "네가 나에게 준 것",
   "year": "2020",
-  "cover": "/img/uploads/p30.png",
+  "cover": "img/uploads/p30.png",
   "legacy_url": "single-project16",
   "order": 17,
   "size": "30 x 15 x 72",
   "materials": "석기질점토, 화장토, 투명매트유",
   "photos": [
     {
-      "image": "/img/uploads/p30.png"
+      "image": "img/uploads/p30.png"
     }
   ]
 }

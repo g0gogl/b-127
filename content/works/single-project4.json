@@ -1,14 +1,14 @@
 {
   "title": "Table, Stool",
   "year": "2016",
-  "cover": "/img/uploads/p6.png",
+  "cover": "img/uploads/p6.png",
   "legacy_url": "single-project4",
   "order": 6,
   "size": "90 x 60 x 40, 45 x 45 x 45",
   "materials": "석기질점토, Red oak, Finishing oil",
   "photos": [
     {
-      "image": "/img/uploads/p6.png"
+      "image": "img/uploads/p6.png"
     }
   ]
 }

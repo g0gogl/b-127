@@ -1,23 +1,23 @@
 {
   "title": "일상",
   "year": "2018",
-  "cover": "/img/uploads/p33.png",
+  "cover": "img/uploads/p33.png",
   "legacy_url": "single-project15",
   "order": 16,
   "size": "50 x 46 x 30",
   "materials": "석기질점토, 화장토, 안료 투명매트유",
   "photos": [
     {
-      "image": "/img/uploads/p33.png"
+      "image": "img/uploads/p33.png"
     },
     {
-      "image": "/img/uploads/p33-1.png"
+      "image": "img/uploads/p33-1.png"
     },
     {
-      "image": "/img/uploads/p33-2.png"
+      "image": "img/uploads/p33-2.png"
     },
     {
-      "image": "/img/uploads/p33-3.png"
+      "image": "img/uploads/p33-3.png"
     }
   ]
 }

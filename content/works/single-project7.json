@@ -1,14 +1,14 @@
 {
   "title": "허심탄회한 이야기",
   "year": "2016",
-  "cover": "/img/uploads/p9.png",
+  "cover": "img/uploads/p9.png",
   "legacy_url": "single-project7",
   "order": 8,
   "size": "50 x 24 x 290",
   "materials": "석기질점토, 백매트유, 입욕제거품",
   "photos": [
     {
-      "image": "/img/uploads/p9.png"
+      "image": "img/uploads/p9.png"
     }
   ]
 }

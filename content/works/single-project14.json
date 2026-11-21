@@ -1,40 +1,40 @@
 {
   "title": "뿌리",
   "year": "2018",
-  "cover": "/img/uploads/p27.png",
+  "cover": "img/uploads/p27.png",
   "legacy_url": "single-project14",
   "order": 15,
   "materials": "석기질점토, 화장토, 안료, 투명매트유",
   "photos": [
     {
-      "image": "/img/uploads/p27.png"
+      "image": "img/uploads/p27.png"
     },
     {
-      "image": "/img/uploads/p27-3.png"
+      "image": "img/uploads/p27-3.png"
     },
     {
-      "image": "/img/uploads/p27-1.png"
+      "image": "img/uploads/p27-1.png"
     },
     {
-      "image": "/img/uploads/p27-2.png"
+      "image": "img/uploads/p27-2.png"
     },
     {
-      "image": "/img/uploads/p29.png"
+      "image": "img/uploads/p29.png"
     },
     {
-      "image": "/img/uploads/p29-1.png"
+      "image": "img/uploads/p29-1.png"
     },
     {
-      "image": "/img/uploads/p29-2.png"
+      "image": "img/uploads/p29-2.png"
     },
     {
-      "image": "/img/uploads/p29-3.png"
+      "image": "img/uploads/p29-3.png"
     },
     {
-      "image": "/img/uploads/p29-4.png"
+      "image": "img/uploads/p29-4.png"
     },
     {
-      "image": "/img/uploads/p28.png"
+      "image": "img/uploads/p28.png"
     }
   ]
 }

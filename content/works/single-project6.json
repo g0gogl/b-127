@@ -1,17 +1,17 @@
 {
   "title": "때삐떼",
   "year": "2016",
-  "cover": "/img/uploads/p8.png",
+  "cover": "img/uploads/p8.png",
   "legacy_url": "single-project6",
   "order": 7,
   "size": "120 x 80",
   "materials": "슬립케스팅, 철사, MDF",
   "photos": [
     {
-      "image": "/img/uploads/p8.png"
+      "image": "img/uploads/p8.png"
     },
     {
-      "image": "/img/uploads/p8-1.png"
+      "image": "img/uploads/p8-1.png"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "title": "기억의 조각",
   "year": "2021",
-  "cover": "/img/uploads/p32.jpg",
+  "cover": "img/uploads/p32.jpg",
   "legacy_url": "single-project18",
   "order": 19,
   "heading": "Knock-",
@@ -9,7 +9,7 @@
   "size": "44 x 3 8x 56 cm",
   "photos": [
     {
-      "image": "/img/uploads/p32.jpg"
+      "image": "img/uploads/p32.jpg"
     }
   ]
 }

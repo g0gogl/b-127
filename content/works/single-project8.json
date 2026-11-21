@@ -1,14 +1,14 @@
 {
   "title": "아지트",
   "year": "2017",
-  "cover": "/img/uploads/p13.png",
+  "cover": "img/uploads/p13.png",
   "legacy_url": "single-project8",
   "order": 10,
   "size": "22 x 17 x 70, 20 x 20 x 53",
   "materials": "통나무, 석기질점토, ceramic crayon",
   "photos": [
     {
-      "image": "/img/uploads/p13.png"
+      "image": "img/uploads/p13.png"
     }
   ]
 }

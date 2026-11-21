@@ -1,23 +1,23 @@
 {
   "title": "어떤 마을",
   "year": "2016",
-  "cover": "/img/uploads/p3.png",
+  "cover": "img/uploads/p3.png",
   "legacy_url": "single-project3",
   "order": 3,
   "size": "120 x 80",
   "materials": "석기질점토, LED, Watch Movement, 다육식물",
   "photos": [
     {
-      "image": "/img/uploads/p3.png"
+      "image": "img/uploads/p3.png"
     },
     {
-      "image": "/img/uploads/p3-1.png"
+      "image": "img/uploads/p3-1.png"
     },
     {
-      "image": "/img/uploads/p3-2.png"
+      "image": "img/uploads/p3-2.png"
     },
     {
-      "image": "/img/uploads/p3-3.png"
+      "image": "img/uploads/p3-3.png"
     }
   ]
 }

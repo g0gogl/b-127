@@ -1,17 +1,17 @@
 {
   "title": "접속의 미로",
   "year": "2016",
-  "cover": "/img/uploads/p5.png",
+  "cover": "img/uploads/p5.png",
   "legacy_url": "single-project5",
   "order": 4,
   "size": "30 x 450 x 8.5",
   "materials": "석기질점토, ceramic pencil",
   "photos": [
     {
-      "image": "/img/uploads/p5.png"
+      "image": "img/uploads/p5.png"
     },
     {
-      "image": "/img/uploads/p5-1.png"
+      "image": "img/uploads/p5-1.png"
     }
   ]
 }

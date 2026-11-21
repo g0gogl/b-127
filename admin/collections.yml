@@ -1,7 +1,7 @@
 locale: ko
 show_preview_links: false
 media_folder: img/uploads
-public_folder: /img/uploads
+public_folder: img/uploads
 slug:
   encoding: unicode
 
@@ -10,8 +10,6 @@ collections:
     label: 사이트
     delete: false
     format: json
-    editor:
-      preview: false
     files:
       - name: home
         label: 메인 화면
@@ -61,6 +59,7 @@ collections:
                   - label: 주소 (URL)
                     name: url
                     widget: string
+                    default: 'https://'
                     pattern: ['^https?://\S+$', 'https:// 또는 http://로 시작하는 전체 주소를 입력하세요.']
           - label: 연락 이메일
             name: email
@@ -96,8 +95,6 @@ collections:
     format: json
     summary: '{{title}} · {{year}}'
     sortable_fields: [year, title]
-    editor:
-      preview: false
     fields:
       - {label: 제목, name: title, widget: string}
       - label: 제작 연도

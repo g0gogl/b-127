@@ -1,7 +1,7 @@
 {
   "title": "사막동물 파랑새",
   "year": "2022",
-  "cover": "/img/uploads/p46.jpg",
+  "cover": "img/uploads/p46.jpg",
   "legacy_url": "single-project25",
   "order": 26,
   "heading": "B",
@@ -9,13 +9,13 @@
   "materials": "stonware, glaze",
   "photos": [
     {
-      "image": "/img/uploads/p46.jpg"
+      "image": "img/uploads/p46.jpg"
     },
     {
-      "image": "/img/uploads/p46-1.jpg"
+      "image": "img/uploads/p46-1.jpg"
     },
     {
-      "image": "/img/uploads/p46-2.jpg"
+      "image": "img/uploads/p46-2.jpg"
     }
   ]
 }

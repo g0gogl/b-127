@@ -1,7 +1,7 @@
 {
   "title": "사막동물 미어캣",
   "year": "2022",
-  "cover": "/img/uploads/p42.jpg",
+  "cover": "img/uploads/p42.jpg",
   "legacy_url": "single-project21",
   "order": 22,
   "heading": "B",
@@ -9,10 +9,10 @@
   "materials": "stonware, glaze",
   "photos": [
     {
-      "image": "/img/uploads/p42.jpg"
+      "image": "img/uploads/p42.jpg"
     },
     {
-      "image": "/img/uploads/p42-1.jpg"
+      "image": "img/uploads/p42-1.jpg"
     }
   ]
 }
