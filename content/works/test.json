@@ -1,0 +1,17 @@
+{
+  "title": "test",
+  "year": "2023",
+  "cover": "/img/uploads/스크린샷-2026-09-04-17-18-31.png",
+  "photos": [
+    {
+      "image": "/img/uploads/스크린샷-2026-08-30-20-29-43.png"
+    }
+  ],
+  "description": "test",
+  "materials": "test",
+  "size": "test",
+  "object": true,
+  "show_title": true,
+  "heading": "test",
+  "detail_title": "test"
+}
