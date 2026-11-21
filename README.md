@@ -11,6 +11,8 @@
 
 대표 사진은 목록에 표시됩니다. 상세 사진을 따로 넣지 않은 새 작품은 상세 화면에도 대표 사진을 사용합니다. 사진 파일은 업로드한 상태로 보존되며, 사이트에서 **원본 사진 보기**를 눌러 열 수 있습니다.
 
+메인 사진은 **사이트 → 메인 화면**에서 바꾸고 게시합니다.
+
 ## 미리보기
 
 Node.js 22와 Python 3.12 환경의 터미널에서 아래 명령을 실행합니다.
@@ -34,8 +36,21 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
 
 1. 배포에 사용할 GitHub 계정에서 `b-127`이라는 공개 저장소를 만들고 이 폴더의 소스를 `main` 브랜치에 올립니다. 코드와 작품 사진 원본이 함께 공개됩니다.
 2. 저장소 **Settings → Pages → Build and deployment → Source**에서 **GitHub Actions**를 선택합니다. **Actions → Publish B-127 to GitHub Pages → Run workflow**를 처음 한 번 실행하면 `https://<계정>.github.io/b-127/`이 만들어집니다. 이후에는 `main`에 게시할 때 자동으로 배포합니다. [GitHub Pages 배포 설정](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
-3. 관리자 로그인을 사용하려면 같은 GitHub 계정에서 OAuth 앱을 만들고, Decap 공식 문서에서 안내하는 Cloudflare Worker에 연결합니다. 콜백 주소는 Worker 주소 뒤에 `/callback`을 붙인 URL입니다. OAuth 앱의 Client Secret은 Worker의 Secret으로 설정합니다. [Decap 설정](https://decapcms.org/docs/backends-overview/#using-github-with-an-oauth-proxy) · [OAuth Worker 설정](https://github.com/sterlingwes/decap-proxy#setup)
-4. GitHub 저장소 **Settings → Secrets and variables → Actions → Variables**에 환경 변수 `B127_CMS_AUTH_URL`을 추가합니다. 값은 `/callback`을 제외한 Worker 주소입니다. 배포 워크플로를 다시 실행하면 사이트 주소 뒤에 `/admin/`을 붙여 로그인할 수 있습니다. 작품을 게시할 계정에만 저장소 쓰기 권한을 부여합니다.
+
+### GitHub Pages에서 관리자 로그인 연결하기
+
+1. Cloudflare Workers 무료 플랜에서 이 폴더의 `auth/`를 배포합니다. 일반 터미널에서 Node.js 22로 다음 명령을 실행하면 Cloudflare 계정에 로그인하고 Worker 주소를 받을 수 있습니다.
+
+   ```sh
+   cd auth
+   npx wrangler@4 login
+   npx wrangler@4 deploy
+   ```
+
+2. [GitHub OAuth 앱 만들기](https://github.com/settings/applications/new)에서 앱 이름을 `B-127 작품 관리`, Homepage URL을 `https://g0gogl.github.io/b-127/`로 입력합니다. Authorization callback URL에는 배포된 Worker 주소 뒤에 `/callback`을 붙여 입력합니다. [GitHub 로그인 연결 안내](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)
+3. Worker의 **Settings → Variables and Secrets**에서 앱의 Client ID를 `GITHUB_CLIENT_ID`, 생성한 Client Secret을 `GITHUB_CLIENT_SECRET`로 각각 추가합니다. Client Secret의 유형은 **Secret**으로 선택합니다. [Cloudflare 비밀값 설정](https://developers.cloudflare.com/workers/configuration/secrets/)
+4. GitHub 저장소 **Settings → Secrets and variables → Actions → Variables**에 `B127_CMS_AUTH_URL`을 추가합니다. 값은 Worker의 기본 HTTPS 주소입니다. **Actions → Publish B-127 to GitHub Pages → Run workflow**를 다시 실행합니다.
+5. 사이트의 `/admin/`을 열고 GitHub 계정으로 로그인합니다. B-127 저장소에 쓰기 권한이 있는 계정은 연도와 작품을 등록하고 메인 사진을 바꿀 수 있습니다. [Decap GitHub 로그인 구조](https://decapcms.org/docs/backends-overview/#using-github-with-an-oauth-proxy)
 
 ## 새 주소를 쓰는 배포
 

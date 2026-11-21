@@ -139,7 +139,7 @@ function renderPortfolio(years, works) {
 
 function originalLink(path) {
   const open = path.toLowerCase().endsWith('.svg') ? 'download' : 'target="_blank" rel="noopener"';
-  return `<a class="text-link" data-original href="${mediaUrl(path)}" ${open}>원본 사진 보기 <span aria-hidden="true">↗</span></a>`;
+  return `<a class="text-link" data-original href="${mediaUrl(path)}" ${open}>원본 사진 보기</a>`;
 }
 
 function renderGallery(photos, title) {
@@ -240,9 +240,14 @@ if (registeredYears.some((year) => !validYear.test(year))) {
 const works = loadWorks();
 const years = new Set([...registeredYears, ...works.map((work) => String(work.year))]);
 const workTemplate = read('templates/work.html');
+const home = JSON.parse(read('content/home.json'));
 const pages = new Map([
   ['index.html', renderPage('B-127 · 원슬비', '원슬비 도예 작품 포트폴리오',
-    render(read('templates/home.html'), { WORKS: works.slice(0, 3).map(renderCard).join('\n') }), 'home')],
+    render(read('templates/home.html'), {
+      HERO_IMAGE: resizedImage(imagePath(home.image, '메인 사진'), 1440, 88),
+      HERO_ALT: escapeHtml(home.alt),
+      WORKS: works.slice(0, 3).map(renderCard).join('\n'),
+    }), 'home')],
   ['about.html', renderPage('작가 소개 · B-127', '원슬비 작가 소개와 전시 이력',
     read('templates/about.html'), 'about')],
   ['portfolio.html', renderPage('작품 · B-127', '원슬비의 도예 작품을 연도별로 둘러보세요.',
@@ -264,10 +269,13 @@ try {
   });
   rmSync(mediaManifest);
   for (const [path, html] of pages) writeFileSync(join(output, path), html);
-  if (backend) {
+  if (backend || process.env.B127_GITHUB_PAGES === 'true') {
     mkdirSync(join(output, 'admin'));
-    cpSync(join(root, 'admin/index.html'), join(output, 'admin/index.html'));
-    writeFileSync(join(output, 'admin/config.yml'), backend + '\n\n' + read('admin/collections.yml'));
+    const adminPage = backend ? 'index.html' : 'connect.html';
+    cpSync(join(root, 'admin', adminPage), join(output, 'admin/index.html'));
+    if (backend) {
+      writeFileSync(join(output, 'admin/config.yml'), backend + '\n\n' + read('admin/collections.yml'));
+    }
   }
   rmSync(join(root, 'dist'), { recursive: true, force: true });
   renameSync(output, join(root, 'dist'));

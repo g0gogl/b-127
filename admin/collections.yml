@@ -6,6 +6,20 @@ slug:
   encoding: unicode
 
 collections:
+  - name: site
+    label: 사이트
+    delete: false
+    format: json
+    editor:
+      preview: false
+    files:
+      - name: home
+        label: 메인 화면
+        file: content/home.json
+        fields:
+          - {label: 메인 사진, name: image, widget: image, choose_url: false}
+          - {label: 사진 설명, name: alt, widget: string, hint: 사진에 어떤 작품이 담겨 있는지 적어주세요.}
+
   - name: years
     label: 연도
     label_singular: 연도

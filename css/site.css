@@ -101,6 +101,7 @@ ul { padding: 0; list-style: none; }
 }
 .text-link:hover { color: var(--earth); }
 .hero {
+    max-width: 60rem;
     margin-block: clamp(2rem, 5vw, 4.5rem) clamp(3rem, 8vw, 6.75rem);
 }
 .hero-copy {
@@ -124,7 +125,7 @@ ul { padding: 0; list-style: none; }
     color: var(--muted);
 }
 .hero .text-link { font-size: .94rem; }
-.hero-photo { width: 100%; height: auto; }
+.hero-photo { margin-inline: auto; }
 .section-heading { margin-bottom: 1.2rem; }
 .section-heading h2 { font-size: clamp(1.45rem, 3vw, 2rem); letter-spacing: -.055em; }
 .section-heading .text-link { font-size: .88rem; flex: none; }
