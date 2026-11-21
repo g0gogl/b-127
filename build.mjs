@@ -192,41 +192,54 @@ function renderWork(template, work) {
   });
 }
 
-function exhibitionVideoLink(address) {
-  if (!address) return '';
-  const video = new URL(address);
-  const youtubeHosts = ['www.youtube.com', 'youtube.com', 'm.youtube.com', 'youtu.be'];
-  if (video.protocol !== 'https:' || !youtubeHosts.includes(video.hostname) ||
-      video.username || video.password || video.port || video.pathname === '/') {
-    throw new Error('Enter a valid YouTube address for the exhibition video in content/about.json.');
-  }
+const exhibitionLinkLabels = {
+  youtube: '유튜브',
+  instagram: '인스타그램',
+  article: '기사',
+  website: '웹사이트',
+};
 
-  return `                            <a class="youtube-link" href="${escapeHtml(video.href)}" aria-label="개인전 영상 보기 (YouTube)">
-                                <img src="img/youtube.png" width="150" height="106" alt="">
-                            </a>`;
+function renderExhibitionLink({ type, url }, description) {
+  const address = typeof url === 'string' && /^https?:\/\//i.test(url) ? new URL(url) : null;
+  if (!Object.hasOwn(exhibitionLinkLabels, type) || !address ||
+      address.username || address.password) {
+    throw new Error(`Check the icon and full web address for the exhibition "${description}".`);
+  }
+  const icon = type === 'youtube'
+    ? '<img src="img/youtube.png" width="150" height="106" alt="">'
+    : `<span class="exhibition-icon exhibition-icon--${type}" aria-hidden="true"></span>`;
+  const label = escapeHtml(`${description} ${exhibitionLinkLabels[type]}`);
+  return `<a class="exhibition-link" href="${escapeHtml(address.href)}" aria-label="${label}">${icon}</a>`;
 }
 
-function renderAboutSection(title, items = [], link = '') {
-  if (!items.length && !link) return '';
-  const rows = items.map(({ year, description }) =>
-    `                            <li><time>${escapeHtml(year)}</time><span>${escapeHtml(description)}</span></li>`);
-  const heading = link ? `                        <div class="about-section-heading">
-                            <h3>${title}</h3>
-${link}
-                        </div>` : `                        <h3>${title}</h3>`;
+function renderAboutSection(title, items = []) {
+  if (!items.length) return '';
+  const rows = items.map(({ year, description, links = [] }) => {
+    const icons = (links ?? []).map((link) => renderExhibitionLink(link, description)).join('');
+    const linkList = icons ? ` <span class="exhibition-links">${icons}</span>` : '';
+    return `                            <li><time>${escapeHtml(year)}</time><span>${escapeHtml(description)}${linkList}</span></li>`;
+  });
   return `                    <section>
-${heading}
-${rows.length ? '                        <ul>\n' + rows.join('\n') + '\n                        </ul>\n' : ''}                    </section>`;
+                        <h3>${title}</h3>
+                        <ul>
+${rows.join('\n')}
+                        </ul>
+                    </section>`;
 }
 
 function renderAbout() {
+  const exhibitions = artist.exhibitions ?? [];
+  const [first, ...others] = exhibitions;
+  const exhibitionItems = first && artist.exhibition_video && !first.links?.length
+    ? [{ ...first, links: [{ type: 'youtube', url: artist.exhibition_video }] }, ...others]
+    : exhibitions;
   return render(read('templates/about.html'), {
     PORTRAIT: resizedImage(imagePath(artist.portrait, '작가 사진'), 1200, 88),
     PORTRAIT_ALT: escapeHtml(artist.portrait_alt),
     ARTIST_NAME: escapeHtml(artist.name),
     ARTIST_NAME_EN: escapeHtml(artist.name_en),
     EDUCATION: renderAboutSection('학력', artist.education ?? []),
-    EXHIBITIONS: renderAboutSection('개인전', artist.exhibitions ?? [], exhibitionVideoLink(artist.exhibition_video)),
+    EXHIBITIONS: renderAboutSection('개인전', exhibitionItems),
     EMAIL: escapeHtml(artist.email),
     EMAIL_LINK: escapeHtml(emailLink),
   });
