@@ -1,0 +1,6 @@
+/dist/
+/.build-*/
+/.netlify/
+/node_modules/
+/.env*
+/.dev.vars*

@@ -1,0 +1,24 @@
+{
+  "title": "우리집에 오신걸 환영합니다",
+  "year": "2022",
+  "cover": "/img/uploads/p48.jpg",
+  "legacy_url": "single-project27",
+  "order": 28,
+  "heading": "B",
+  "size": "34 x 19 x 51 cm",
+  "materials": "stonware, glaze",
+  "photos": [
+    {
+      "image": "/img/uploads/p48.jpg"
+    },
+    {
+      "image": "/img/uploads/p48-1.jpg"
+    },
+    {
+      "image": "/img/uploads/p48-2.jpg"
+    },
+    {
+      "image": "/img/uploads/p48-3.jpg"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+name: Publish B-127 to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install image build dependency
+        run: python3 -m pip install -r requirements.txt
+      - name: Build portfolio
+        env:
+          B127_GITHUB_PAGES: 'true'
+          B127_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          B127_CMS_AUTH_URL: ${{ vars.B127_CMS_AUTH_URL }}
+        run: node build.mjs
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Publish site
+        id: deploy
+        uses: actions/deploy-pages@v4

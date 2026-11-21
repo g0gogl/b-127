@@ -1,0 +1,77 @@
+locale: ko
+show_preview_links: false
+media_folder: img/uploads
+public_folder: /img/uploads
+slug:
+  encoding: unicode
+
+collections:
+  - name: years
+    label: 연도
+    label_singular: 연도
+    description: 새 연도를 먼저 게시한 뒤 작품을 등록하세요.
+    folder: content/years
+    create: true
+    delete: false
+    slug_collision: reject
+    extension: json
+    format: json
+    editor:
+      preview: false
+    fields:
+      - label: 연도
+        name: title
+        widget: string
+        hint: "예: 2026. 이미 작품에 연결한 연도는 그대로 두고 새 연도를 추가하세요."
+        pattern: ['^[1-9][0-9]{3}$', '네 자리 연도를 입력하세요.']
+
+  - name: works
+    label: 작품
+    label_singular: 작품
+    folder: content/works
+    create: true
+    delete: false
+    extension: json
+    format: json
+    summary: '{{title}} · {{year}}'
+    sortable_fields: [year, title]
+    editor:
+      preview: false
+    fields:
+      - {label: 제목, name: title, widget: string}
+      - label: 제작 연도
+        name: year
+        widget: relation
+        collection: years
+        search_fields: [title]
+        display_fields: [title]
+        value_field: title
+      - label: 대표 사진
+        name: cover
+        widget: image
+        choose_url: false
+        hint: 작품 목록에 보여 줄 사진입니다. 상세 사진을 따로 올리지 않으면 상세에도 표시됩니다. 원본은 그대로 저장합니다.
+      - label: 상세 사진
+        name: photos
+        widget: list
+        required: false
+        hint: 보여 줄 순서대로 추가하세요. 두 장 이상이면 슬라이드로 표시되고 방문자가 각 원본을 열 수 있습니다.
+        fields:
+          - {label: 사진, name: image, widget: image, choose_url: false}
+      - {label: 설명, name: description, widget: text, required: false}
+      - {label: 재료, name: materials, widget: string, required: false}
+      - {label: 크기, name: size, widget: string, required: false}
+      - {label: 오브제, name: object, widget: boolean, default: false, required: false}
+      - {label: 작품 제목 표시, name: show_title, widget: boolean, default: true, required: false}
+      - label: 시리즈 이름 또는 짧은 문구
+        name: heading
+        widget: string
+        required: false
+        hint: 상세 화면에서 제목 아래에 표시됩니다. 필요할 때만 입력하세요.
+      - label: 상세 화면 제목
+        name: detail_title
+        widget: string
+        required: false
+        hint: 비워두면 작품 제목을 사용합니다.
+      - {name: legacy_url, widget: hidden, required: false}
+      - {name: order, widget: hidden, required: false}

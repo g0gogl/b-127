@@ -1,0 +1,18 @@
+{
+  "title": "제목 미등록 · 작품 24",
+  "year": "2022",
+  "cover": "/img/uploads/p45.jpg",
+  "legacy_url": "single-project24",
+  "order": 25,
+  "show_title": false,
+  "heading": "B",
+  "materials": "stonware, glaze",
+  "photos": [
+    {
+      "image": "/img/uploads/p45.jpg"
+    },
+    {
+      "image": "/img/uploads/p45-1.jpg"
+    }
+  ]
+}

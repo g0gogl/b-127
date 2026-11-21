@@ -1,0 +1,21 @@
+{
+  "title": "개와 새",
+  "year": "2022",
+  "cover": "/img/uploads/p44.jpg",
+  "legacy_url": "single-project23",
+  "order": 24,
+  "heading": "B",
+  "size": "26 x 35 x 46 cm",
+  "materials": "stonware, glaze",
+  "photos": [
+    {
+      "image": "/img/uploads/p44.jpg"
+    },
+    {
+      "image": "/img/uploads/p44-1.jpg"
+    },
+    {
+      "image": "/img/uploads/p44-2.jpg"
+    }
+  ]
+}
