@@ -103,8 +103,9 @@ function loadWorks() {
     routes.add(file);
 
     const cover = imagePath(work.cover, work.title);
-    const photos = (work.photos ?? []).map(({ image }) => imagePath(image, work.title));
-    return { ...work, file, cover, photos: photos.length ? photos : [cover] };
+    const detailPhotos = (work.photos ?? []).map(({ image }) => imagePath(image, work.title));
+    const photos = [cover, ...detailPhotos.filter((photo) => photo !== cover)];
+    return { ...work, file, cover, photos };
   }).sort((a, b) => b.year - a.year ||
     (a.order ?? Infinity) - (b.order ?? Infinity) || a.slug.localeCompare(b.slug, 'ko'));
 }
