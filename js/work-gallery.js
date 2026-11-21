@@ -4,7 +4,7 @@ const photos = Array.from(slides.querySelectorAll('li'));
 const previous = gallery.querySelector('[data-prev]');
 const next = gallery.querySelector('[data-next]');
 const position = gallery.querySelector('[data-position]');
-const original = gallery.querySelector('[data-original]');
+const original = gallery.querySelector('a[data-original]');
 let current = 0;
 
 function updateControls(index) {
