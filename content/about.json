@@ -1,8 +1,8 @@
 {
   "name": "원슬비",
   "name_en": "Won Seul Bee",
-  "portrait": "img/uploads/profill.jpg",
-  "portrait_alt": "작업실에서 작품을 만드는 원슬비 작가",
+  "portrait": "img/uploads/87.jpg",
+  "portrait_alt": "도자조형 및 공예를 기반으로 흙의 물성과 조형적 가능성을 탐구합니다.  자연과 일상에서 발견한 소재를 본인의 시선으로 관찰하고, 흙으로 빚은 형태 안에 그 모습을 담아내고자 합니다. 작품이 특별한 공간에 머무르기보다 일상 속에 편안하게 놓이기를 바랍니다.",
   "education": [
     {
       "year": "2020",
@@ -16,13 +16,18 @@
   "exhibitions": [
     {
       "year": "2023",
-      "description": "〈B의 여행〉, 춘천 개나리미술관",
+      "description": "〈B의 여행〉,  개나리미술관, 춘천",
       "links": [
         {
           "type": "youtube",
           "url": "https://www.youtube.com/watch?v=eZ3fzGVujE0"
         }
       ]
+    },
+    {
+      "links": [],
+      "year": "2026",
+      "description": "「안녕하세요, 어서오세요」, 아트스페이스사이로, 춘천"
     }
   ],
   "email": "wsb924@gmail.com"
